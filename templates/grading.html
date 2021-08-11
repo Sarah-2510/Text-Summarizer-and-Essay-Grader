@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Grading</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+</head>
+<body><div class="navbar-fixed">
+   <nav class="MediumAquaMarine" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Grading</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{{url_for('grading')}}">Grading</a></li>
+        <li><a href="{{url_for('index')}}">Summarizer</a></li>
+         <li><a href="{{url_for('compare_summary')}}">Compare Summarizers</a></li>
+      </ul>
+
+      
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+</div>
+	<ul id="nav-mobile" class="sidenav">
+        <li><a href="{{url_for('grading')}}">Grading</a></li>
+        <li><a href="{{url_for('index')}}">Summarizer</a></li>
+         <li><a href="{{url_for('compare_summary')}}">Compare</a></li>
+      </ul>
+<!--Slider -->
+ <section class="slider">
+  <div id="index-banner" class="parallax-container">
+     <ul class="slides">
+      <li>
+        <img src="backgroundblue.png" alt="Unsplashed background img 1" alt="">
+        <div class="caption center-align">
+          <h2>Essay Grading</h2>
+          <!-- <h5 class="light grey-text text-lighten-3 hide-on-small-only">
+           Using SpaCy,Gensim,NLTK and Sumy
+          </h5> -->
+         
+           <div class="row center">
+          <a href="{{url_for('index')}}" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">Refresh</a>
+        </div>
+        </div>
+      </li>
+      <!-- <li>
+       <img src="backgroundpurple.png" alt="Unsplashed background img 1">
+        <div class="caption left-align">
+          <h2>Text Summarizer with SpaCy</h2>
+          <h5 class="light grey-text text-lighten-3 hide-on-small-only">
+           NLP based App
+          </h5>
+          <a href="#aboutapp" class="btn btn-large waves-effect waves-light light-blue lighten-1">Learn More</a>
+        </div>
+      </li> -->
+   
+    </ul>
+  </div>
+</section>
+
+
+
+<!-- Start of Main Section -->
+ <div class="container">
+    <div class="section">
+       
+      <!--   Icon Section   -->
+
+<h4>Select essay set</h4>
+<form action="/grader">
+    <p>
+      <label>
+        <input name="sets" type="radio" checked />
+        <span>Letter to local newspaper on effects of computer</span>
+      </label>
+    </p> 
+
+    <p>
+      <label>
+        <input name="sets" type="radio" />
+        <span>Essay to local newspaper on cencorship in libraries</span>
+      </label>
+    </p>
+
+    <p>
+      <label>
+        <input name="sets" type="radio" />
+        <span>Essay on how the setting affected the cyclist in 'Rough Road Ahead'</span>
+      </label>
+    </p>
+
+<p>
+      <label>
+        <input name="sets" type="radio" />
+        <span>Response to 'Winter Hibiscus' by Minfong Ho</span>
+      </label>
+    </p>
+
+     <p>
+      <label>
+        <input name="sets" type="radio" />
+        <span>Decsribe th mood created by Narciso Rodriguez in 'Home: The Blueprints of Our Lives'</span>
+      </label>
+    </p>
+
+     <p>
+      <label>
+        <input name="sets" type="radio" />
+        <span>The difficulties in attempting to allow dirgibles to dock on Empire State Building</span>
+      </label>
+    </p>
+
+     <p>
+      <label>
+        <input name="sets" type="radio" />
+        <span>Story on being a patient</span>
+      </label>
+    </p>
+
+     <p>
+      <label>
+        <input name="sets" type="radio" />
+        <span>Tell a true story about laughter</span>
+      </label>
+    </p>
+   <!-- <input type="submit" value="Submit"> -->
+  </form>
+
+
+
+
+
+      <div class="row">
+        <div class="input-field col s12 m10">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">chrome_reader_mode</i></h2>
+           <form method="POST" action="/grader">
+         <textarea name="essay" cols="3" rows="5" class="form-control" required="true" placeholder="Enter Essay Here"></textarea>
+          
+         <br/>
+         <button class="btn btn-small waves-effect waves-light light-blue lighten-1" type="reset">Clear</button>
+          <button class="btn btn-small waves-effect waves-light purple lighten-1" type="submit">Grading</button>
+          
+        </form>
+          </div>
+        </div>
+
+      </div>
+
+        <div class="row">
+        <div class="input-field col s12 m10">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">chrome_reader_mode</i></h2>
+           <form method="POST" action="/analyze_url">
+         <!-- <input type="text" name="raw_url" placeholder="Enter URL Here" required="true">
+         <button class="btn btn-small waves-effect waves-light light-blue lighten-1" type="reset">Clear</button>
+          <button class="btn btn-small waves-effect waves-light purple lighten-1" type="submit">Summarize</button> -->
+          
+        </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- End -->
+
+  <!-- Result Display-->
+  <section class="section section-solutions-about grey darken-2">
+ <div class="container white-text">
+ 
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Your Essay</h5>
+            <p class="light">{{ctext}}</p>
+             <!-- <p>Reading Time: <span style="color:#0091EA;">{{ final_reading_time }} min </span></p>
+            <p class="light">{{ctext}}</p>
+            <div class="alert alert-info" role="alert"><p>Time Elapsed: <span style="color:#0091EA;">{{ final_time }} mins </span></p><br/> -->
+             
+        <!-- </div> -->
+          </div>
+        </div>
+
+        <div class="col s12 m6 grey darken-3">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">chrome_reader_mode</i></h2>
+            <h5 class="center">Your Grade</h5>
+              <div class="" role="alert">
+              <!-- <p>Reading Time: <span style="color:#0091EA;">{{ summary_reading_time }} min </span></p> -->
+        </div>
+            <p class="light">{{ predicted_score }}</p>
+          
+          </div>
+        </div>
+
+      </div>
+
+  
+  </div>
+</section>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="static/js/materialize.js"></script>
+  <script src="static/js/init.js"></script>
+<!-- Jesse JCharis -->
+  </body>
+</html>
